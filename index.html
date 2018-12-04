@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Psychic Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+</head>
+
+<body>
+    
+        <div class="background" style="background-image: url(assets/images/slp0.gif)">
+            <div id="game">      
+                <div class="row mt-5"></div>
+                <div class="row mt-5 mr-0 ml-0">
+                    <div class="col-lg-4 mt-5 p-0">
+                    </div>                 
+                        <div class="col-lg-4 mt-5 p-0">
+
+                            <div class="rounded-circle m-5 p-3">
+                                <br>
+                                <h1 class="display-5" style="text-align: center;">The Psychic Game</h1>
+                                <br>
+                                <br>
+                                <!--this is where user input and calculations will be displayed-->
+                                <p><h3><strong>Guess what letter I'm thinking of:  <span id="user-text"></span></strong></h3></p>
+                                <p><h3><strong>Wins:  <span id="numbWins">0</span></strong></h3></p>
+                                <p><h3><strong>Losses:  <span id="numbLosses">0</span></strong></h3></p>
+                                <p><h3><strong>Guesses left:  <span id="remaining">10</span></strong></h3></p>
+                                <p><h3><strong>Your guesses so far:  <span id="soFar"></span></strong></h3></p>                                                 
+                            </div>
+
+                        </div>
+                    <div class="col-lg-4 p-0">
+                    </div>
+                </div> 
+            </div> 
+        
+        </div> 
+
+
+    <script type="text/javascript">
+        
+        //--1. Set beginning counter variables.--//
+        var wins = 0,
+            losses = 0,
+            guessesLeft = 10;
+            var guessesSofar = [];
+
+        var userChoiceText = document.getElementById("user-text");
+        var winsText = document.getElementById("numbWins");
+        var lossesText = document.getElementById("numbLosses");
+        var guessesLeftText = document.getElementById("remaining");
+        var guessesSofarText = document.getElementById("soFar");
+
+        //--this determines what letters are available to the computer to choose from to start the game.
+        var availableLetters = ["p", "s", "y", "c", "h", "i", "q", "g", "a", "m", "e"];
+            //--this allows computer to randomly pick a letter from the array.
+            var computerChoice = availableLetters[Math.floor(Math.random()
+            * availableLetters.length)];
+        
+        //--2. Get user input(guess) using keypress and store in varible for later use.--//
+
+            //--this function is run whenever user presses a key...
+        document.onkeyup = function(event) {
+            //--this determines which key was pressed...
+            var userGuess = event.key;
+            
+            //--3. Create array listing available guesses.--//
+            var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
+                "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+                      
+            //--4. Compare user guess to computer choice to determine result.--//
+            //--if user guess is one of those in our alphabet array...
+            if ((userGuess === "a") || (userGuess === "b") || (userGuess === "c") || (userGuess === "d") || (userGuess === "e") ||
+            (userGuess === "f") || (userGuess === "g") || (userGuess === "h") || (userGuess === "i") || (userGuess === "j") ||
+            (userGuess === "k") || (userGuess === "l") || (userGuess === "m") || (userGuess === "n") || (userGuess === "o") ||
+            (userGuess === "p") || (userGuess === "q") || (userGuess === "r") || (userGuess === "s") || (userGuess === "t") ||
+            (userGuess === "u") || (userGuess === "v") || (userGuess === "w") || (userGuess === "x") || (userGuess === "y") ||
+            (userGuess === "z"))   {
+                    
+            if (userGuess === computerChoice) {
+                wins++;
+                guessesLeft = 11;
+                guessesSofar = [];
+                computerChoice =  availableLetters[Math.floor(Math.random() * availableLetters.length)];
+                    alert("You selected the letter ( " + userGuess + " ).....   Congratulations!  That is the letter I was thinking of!");
+                userGuess = "";
+            }
+             
+            if (userGuess !== computerChoice) {
+                guessesLeft--;
+                guessesSofar.push(userGuess); 
+            }
+            
+            if (guessesLeft === 0) {
+                losses++;
+                userGuess = "";
+            }
+
+            if (guessesLeft > 0) {          
+            }
+            else    {guessesLeft = 10;
+                    guessesSofar = [];
+            }
+    
+                //--5. Display results to browser.--//
+            userChoiceText.textContent = userGuess;
+            winsText.textContent = wins;
+            lossesText.textContent = losses;
+            guessesLeftText.textContent = guessesLeft;
+            guessesSofarText.textContent = guessesSofar;
+           
+            }
+            
+        };
+
+        </script>
+</body>
+</html>
