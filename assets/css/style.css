@@ -1,33 +1,55 @@
+body {
+    opacity: 1;
+    transition: 120s opacity;
+    overflow-x: hidden;
+}
 
+.container {
+        opacity: 0;
+
+        animation: fadeIn 35s;
+        animation-delay: 32s;
+        animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body.fade {
+    animation-delay: 60s;
+}
 
 * {
     margin: 0; padding: 0;
 }
 
 .background {
-    align-content: center;
     background-position-x: 50%;
     background-position-y: 50%;
     position: absolute;
     width: 100%; 
     min-height: 100%;
-    background-size: 2000px;
-    
+    background-size: 1450px; 
 }
+
 
 #soFar, 
 #remaining,
 #numbLosses,
 #numbWins,
 #user-text {
-    font-size: 28px;
+    font-size: 22px;
+    padding-left: 10px;
 }
 
 .rounded-circle {
-    background:  rgba(138, 207, 147, 0.0);
-    min-height: 100%;
-    color: rgb(255, 6, 6);
-    
+    background: rgba(104, 150, 84, 0.35);
+    min-height: 500px;
+    color: rgb(233, 208, 208, 0.75);
+    box-shadow: 0 0 250px 60px rgb(180, 180, 180),  inset  1px 1px 120px 12px rgb(180, 180, 180); 
+    border-radius: 20px;   
+    filter: saturate(10);
+    Filter: sepia(80%);
 }
-
-
