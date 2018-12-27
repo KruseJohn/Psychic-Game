@@ -1,55 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     opacity: 1;
-    transition: 120s opacity;
+    transition: 70s opacity;
     overflow-x: hidden;
 }
 
-.container {
-        opacity: 0;
-
-        animation: fadeIn 35s;
-        animation-delay: 32s;
-        animation-fill-mode: forwards;
+.container-fluid {
+    width: auto;
+    opacity: 0;
+    animation: fadeIn 33s;
+    animation-delay: 30s;
+    animation-fill-mode: forwards;
 }
 
+.background {
+    margin: 0;
+    padding: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    filter: opacity(80%);
+    filter: sepia(70%);
+}
+
+.card {
+    text-align: center;
+    font-size: 1em;
+    max-width: 350px;
+    height: auto;
+    background: rgba(104, 150, 84, 0.35);
+    color: rgb(233, 208, 208, 0.75);
+    box-shadow: 0px 0px 250px 60px rgb(180, 180, 180), inset 0px 0px 110px 11px rgb(180, 180, 180);
+    border: 1px rgb(180, 180, 180);
+    filter: opacity(90%);
+}
+
+
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 body.fade {
     animation-delay: 60s;
 }
 
-* {
-    margin: 0; padding: 0;
-}
-
-.background {
-    background-position-x: 50%;
-    background-position-y: 50%;
-    position: absolute;
-    width: 100%; 
-    min-height: 100%;
-    background-size: 1450px; 
-}
-
-
-#soFar, 
+#soFar,
 #remaining,
 #numbLosses,
 #numbWins,
 #user-text {
-    font-size: 22px;
-    padding-left: 10px;
-}
-
-.rounded-circle {
-    background: rgba(104, 150, 84, 0.35);
-    min-height: 500px;
-    color: rgb(233, 208, 208, 0.75);
-    box-shadow: 0 0 250px 60px rgb(180, 180, 180),  inset  1px 1px 120px 12px rgb(180, 180, 180); 
-    border-radius: 20px;   
-    filter: saturate(10);
-    Filter: sepia(80%);
+    font-size: 1em;
 }
