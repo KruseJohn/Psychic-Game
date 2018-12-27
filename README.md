@@ -1,1 +1,3 @@
 # Psychic-Game
+
+This project is my first real attempt to make a game using JavaScript.  It works flawlessly.  I added quite a bit of visual style to the project because that's what I like to do.  I also added an audio file that autoplays once the page is loaded.  This game is best viewed on a pc monitor and using Chrome Browser...
